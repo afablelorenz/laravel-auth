@@ -26,10 +26,7 @@ Auth::routes();
 Route::get('/home', [GuestHomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->name('admin.')->prefix('admin/')->group(function(){
-        // rotte protette
-        Route::resource("/posts", AdminPostController::class);
-        Route::get('posts', [AdminPostController::class, 'index'])->name('posts.index');
-        Route::resource('posts', AdminPostController::class);
+
         Route::resource('projects', AdminProjectController::class);
     }
 );
